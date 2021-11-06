@@ -6,7 +6,7 @@ const table = document.querySelector('.table');
 let isSecondCard = false;
 let firstCard;
 let secondCard;
-
+let restart;
 game();
 
 function game(){
@@ -44,7 +44,6 @@ function shuffleAndPlace(){
 function shuffleCards(){
     return Math.random() - 0.5;
 }
-
 function flip(card){
     card.classList.add('fliped');
     if(isSecondCard === false){
@@ -55,15 +54,15 @@ function flip(card){
         isSecondCard = false;
         secondCard = card;
         verifySelectedCards();
-        isGameOwned();
+        setTimeout(isGameOwned, 500);
     }
 }
 function verifySelectedCards(){
     if(firstCard.innerHTML === secondCard.innerHTML){
-        firstCard.classList.remove('fliped');
-        secondCard.classList.remove('fliped');
         firstCard.classList.add('correct-card');
         secondCard.classList.add('correct-card');
+        firstCard.classList.remove('fliped');
+        secondCard.classList.remove('fliped');
     }
     else{
         setTimeout(unflip, 1000);
@@ -73,10 +72,22 @@ function unflip(){
     firstCard.classList.remove('fliped');
     secondCard.classList.remove('fliped');
 }
-
 function isGameOwned(){
     const correctCards = document.querySelectorAll('.correct-card');
     if(correctCards.length == numCards){
         alert('Parabéns, você venceu!!!');
+        restart = prompt('Deseja recomeçar o jogo?[s/n]');
+        if(restart == 's' || restart == 'S'){
+            resetGameVariables();
+            game();
+        }
     }
+}
+function resetGameVariables(){
+    isSecondCard = false;
+    firstCard = '';
+    secondCard = '';
+    table.innerHTML = '';
+    usedCards = [];
+    cards = [];
 }
