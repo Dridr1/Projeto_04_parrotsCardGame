@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEF9BF;
+}
+.card{
+    width: 117px;
+    height: 146px;
+    position: relative;
+}
+.face{
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+.back-face{
+    transform: rotateY(180deg);
+}
+.fliped .back-face {
+    transform: rotateY(0deg);
+  }
+
+.fliped .front-face {
+    transform: rotateY(-180deg);
+}
