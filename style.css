@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    font-family: Roboto;
 }
 body{
     display: flex;
@@ -9,6 +8,24 @@ body{
     align-items: center;
     background-color: #EEF9BF;
 }
+/* Title */
+h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    color: #75B79E;
+    margin: 40px;
+}
+/* Table */
+.table{
+    gap: 34px;
+    display: flex;
+    flex-direction: column;
+}
+/* Cards */
 .card{
     width: 117px;
     height: 146px;
@@ -32,7 +49,7 @@ body{
 }
 .fliped .back-face {
     transform: rotateY(0deg);
-  }
+}
 
 .fliped .front-face {
     transform: rotateY(-180deg);
