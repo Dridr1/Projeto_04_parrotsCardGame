@@ -55,6 +55,7 @@ function flip(card){
         isSecondCard = false;
         secondCard = card;
         verifySelectedCards();
+        isGameOwned();
     }
 }
 function verifySelectedCards(){
@@ -67,9 +68,15 @@ function verifySelectedCards(){
     else{
         setTimeout(unflip, 1000);
     }
-
 }
 function unflip(){
     firstCard.classList.remove('fliped');
     secondCard.classList.remove('fliped');
+}
+
+function isGameOwned(){
+    const correctCards = document.querySelectorAll('.correct-card');
+    if(correctCards.length == numCards){
+        alert('Parabéns, você venceu!!!');
+    }
 }
