@@ -3,6 +3,9 @@ let numCards =0;
 let cards = [];
 let usedCards = [];
 const table = document.querySelector('.table');
+let isSecondCard = false;
+let firstCard;
+let secondCard;
 
 game();
 
@@ -10,13 +13,11 @@ function game(){
     startGame();
     shuffleAndPlace();
 }
-
 function startGame(){
     do{
         numCards = prompt('Digite o número de cartas (entre 4 e 14)');
     }while(numCards<4 || (numCards%2)>0 || numCards>14);
 }
-
 function shuffleAndPlace(){
     for (let i = 0; i < images.length; i++) {
         for (let ii = 0; ii < 2; ii++) {
@@ -40,11 +41,35 @@ function shuffleAndPlace(){
         table.innerHTML += usedCards[i];   
     }
 }
-
 function shuffleCards(){
     return Math.random() - 0.5;
 }
 
 function flip(card){
-    card.classList.toggle('fliped');
+    card.classList.add('fliped');
+    if(isSecondCard === false){
+        isSecondCard = true;
+        firstCard = card;
+    }
+    else{
+        isSecondCard = false;
+        secondCard = card;
+        verifySelectedCards();
+    }
+}
+function verifySelectedCards(){
+    if(firstCard.innerHTML === secondCard.innerHTML){
+        firstCard.classList.remove('fliped');
+        secondCard.classList.remove('fliped');
+        firstCard.classList.add('correct-card');
+        secondCard.classList.add('correct-card');
+    }
+    else{
+        setTimeout(unflip, 1000);
+    }
+
+}
+function unflip(){
+    firstCard.classList.remove('fliped');
+    secondCard.classList.remove('fliped');
 }

@@ -81,3 +81,11 @@ h1{
 .fliped .front-face {
     transform: rotateY(180deg);
 }
+
+.correct-card .back-face {
+    transform: rotateY(0deg);
+}
+
+.correct-card .front-face {
+    transform: rotateY(180deg);
+}
