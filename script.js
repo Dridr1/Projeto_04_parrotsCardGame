@@ -35,9 +35,9 @@ function shuffleAndPlace(){
     for (let i = 0; i < numCards; i++) {
         usedCards.push(cards[i]);
     }
+    usedCards = usedCards.sort(shuffleCards);
     for (let i = 0; i < usedCards.length; i++) {
-        table.innerHTML += usedCards[i];
-        
+        table.innerHTML += usedCards[i];   
     }
 }
 
