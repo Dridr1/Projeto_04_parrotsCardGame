@@ -20,16 +20,43 @@ h1{
     margin: 40px;
 }
 /* Table */
+/* Mobile */
+.game{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .table{
     gap: 34px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+}
+/* Desktop */
+@media (min-width:336px) {
+    .table{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 872px;
+    }
+    h1{
+        font-size: 56px;
+        line-height: 66px;
+    }
 }
 /* Cards */
 .card{
     width: 117px;
     height: 146px;
     position: relative;
+}
+.card-image{
+    width: 100px;
+    height: auto;
 }
 .face{
     width: 100%;
@@ -52,5 +79,5 @@ h1{
 }
 
 .fliped .front-face {
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
 }
