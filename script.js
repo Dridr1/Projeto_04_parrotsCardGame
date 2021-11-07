@@ -13,7 +13,6 @@ let numCards =0,
     counter = 0,
     adInterval;
 
-
 game();
 
 function game(){
@@ -84,7 +83,8 @@ function unflip(){
 function isGameOwned(){
     const correctCards = document.querySelectorAll('.correct-card');
     if(correctCards.length == numCards){
-        alert(`Você ganhou em ${tries} jogadas!`);
+        stopTimer();
+        alert(`Você ganhou em ${tries} jogadas e em ${counter} segundos!`);
         restart = prompt('Deseja recomeçar o jogo?[s/n]');
         if(restart == 's' || restart == 'S'){
             resetGameVariables();
@@ -115,4 +115,5 @@ function resetGameVariables(){
     usedCards = [];
     cards = [];
     tries = 0;
+    counter = 0;
 }
