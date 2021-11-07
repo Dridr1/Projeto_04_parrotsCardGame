@@ -1,22 +1,29 @@
-const images = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif', 'unicornparrot.gif'];
-let numCards =0;
-let cards = [];
-let usedCards = [];
-const table = document.querySelector('.table');
-let isSecondCard = false;
-let firstCard;
-let secondCard;
-let restart;
-let tries=0;
+const images = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif', 'unicornparrot.gif'],
+    table = document.querySelector('.table');
+
+let numCards =0,
+    cards = [],
+    usedCards = [],
+    isSecondCard = false,
+    firstCard,
+    secondCard,
+    restart,
+    tries=0,
+    timer = document.querySelector('.timer'),
+    counter = 0,
+    adInterval;
+
+
 game();
 
 function game(){
     startGame();
     shuffleAndPlace();
+    clock();
 }
 function startGame(){
     do{
-        numCards = prompt('Digite o número de cartas (entre 4 e 14)');
+        numCards = parseInt(prompt('Digite o número de cartas (entre 4 e 14)'));
     }while(numCards<4 || (numCards%2)>0 || numCards>14);
 }
 function shuffleAndPlace(){
@@ -88,6 +95,18 @@ function isGameOwned(){
         }
     }
 }
+function clock() {
+    adInterval = setInterval(increaseTime, 1000);
+}
+  
+function increaseTime() {
+   counter++;
+   timer.innerHTML = counter;
+}
+
+function stopTimer(){
+    clearInterval(adInterval);
+}
 function resetGameVariables(){
     isSecondCard = false;
     firstCard = '';
@@ -95,4 +114,5 @@ function resetGameVariables(){
     table.innerHTML = '';
     usedCards = [];
     cards = [];
+    tries = 0;
 }

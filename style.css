@@ -90,3 +90,24 @@ h1{
 .correct-card .front-face {
     transform: rotateY(180deg);
 }
+
+/* Clock */
+.clock{
+    width: 100px;
+    height: 40px;
+    background-color: #A7E9AF;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 2;
+    border: 1px solid #99CEA8;
+}
+.timer{
+    font-family: Roboto;
+    font-size: 22px;
+    color: white;
+}
