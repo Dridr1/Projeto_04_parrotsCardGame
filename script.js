@@ -7,6 +7,7 @@ let isSecondCard = false;
 let firstCard;
 let secondCard;
 let restart;
+let tries=0;
 game();
 
 function game(){
@@ -52,6 +53,7 @@ function flip(card){
     }
     else{
         isSecondCard = false;
+        tries++; 
         secondCard = card;
         verifySelectedCards();
         setTimeout(isGameOwned, 500);
@@ -75,11 +77,14 @@ function unflip(){
 function isGameOwned(){
     const correctCards = document.querySelectorAll('.correct-card');
     if(correctCards.length == numCards){
-        alert('Parabéns, você venceu!!!');
+        alert(`Você ganhou em ${tries} jogadas!`);
         restart = prompt('Deseja recomeçar o jogo?[s/n]');
         if(restart == 's' || restart == 'S'){
             resetGameVariables();
             game();
+        }
+        else{
+            resetGameVariables();
         }
     }
 }

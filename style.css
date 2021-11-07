@@ -59,6 +59,7 @@ h1{
     height: auto;
 }
 .face{
+    border: 1px solid #99CEA8;
     width: 100%;
     height: 100%;
     background-color: #A7E9AF;
